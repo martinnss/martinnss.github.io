@@ -78,8 +78,9 @@ main{
 header {
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(550px,1fr));
-    grid-template-rows: 550px;
+    grid-template-rows: auto;
     grid-auto-rows: 500px;
+    margin-bottom: 2rem;
 }
 
 .presentation {
@@ -139,25 +140,27 @@ header {
     padding-top: 10rem;
     font-size: 2rem;
     font-weight: 800;
-    margin-right: 8rem;
-    margin-left: 8rem;
     margin-bottom: 5rem;
 }
 
 
 
-
+.whatido-container{
+    width: 100%;
+    height: auto;
+    display: grid;
+    place-items: center;
+}
 .whatido {
     display: grid;
+    height: auto;
     grid-template-columns: repeat(3,1fr);
-    grid-template-rows: 400px;
-    margin-right: 8rem;
-    margin-left: 8rem;
+    grid-template-rows: auto;
+    justify-items: center;
+    gap:3.5rem;
 }
 .whatido img {
     width: 8rem;
-    height: auto;
-    text-align: justify;
     padding-bottom: 0.5rem;
 }
 .whatido h3 {
@@ -166,24 +169,45 @@ header {
 .whatido p {
     font-size: 1.4rem;
 }
-
-.datascience {
-    padding-right: 5rem;
+.whatido-card{
+    width: 100%;
+    height: auto;
 }
 
-.business {
-    padding-left: 5rem;
-    padding-right: 5rem;
-}
 
-.frontend {
-    padding-left: 5rem;
+
+
+.tech-container{
+    padding-top: 1rem;
+
+}
+.tech-title {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+.technologies{
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 1;
+}
+.tech{
+    width: 100%;
+    display: grid;
+    place-items: center;
+    grid-template-rows: 1fr auto;
+    height: auto;
+}
+.technologies div img{
+    width: 3.5rem;
 }
 
 
 /*
 /* Extra small devices (phones, 600px and down) 
 @media only screen and (max-width: 600px) {
+
+PARA RESPONSIVE DE FLEX -> FLEX FDIRECION COLUMN
+BREAKPOINT: 973 PX WIDTH
 
 }
 /* Small devices (portrait tablets and large phones, 600px and up) 
