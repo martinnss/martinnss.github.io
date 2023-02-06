@@ -118,8 +118,8 @@ main{
 
 
 header {
-    display: block;
-    grid-template-columns: 1;
+    display: grid;
+    grid-template-columns: 75% auto;
     grid-template-rows: auto;
     margin-bottom: 2rem;
 }
@@ -137,44 +137,20 @@ header {
     padding-right: 2rem;
 }
 .presentation_image {
-    grid-column-start: 3;
-    justify-self: center;
-
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .presentation_image img{
     width: 18.5rem;
     border-radius: 15px;
-
-
-
-
-}
-.presentation_rrss {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: 100px;
-    grid-template-areas: "Logoss Logoss mail";
-}
-.presentation_logos {
-    grid-area: Logoss;
-    padding-left: 0px;
-}
-.presentation_logos li {
-    display: inline-block;
-    padding-right: 5rem;
-    list-style-type: none;
-}
-.presentation_logos img {
-    width: 3rem;
-}
-.presentation_gmail {
-    font-size: 1.5rem;
 }
 
 
 
 .what{
-    padding-top: 10rem;
+    padding-top: 1rem;
     font-size: 2rem;
     font-weight: 800;
     margin-bottom: 5rem;
@@ -186,12 +162,10 @@ header {
     width: 100%;
     height: auto;
     display: grid;
-    place-items: center;
 }
 .whatido {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-    place-items: center;
     column-gap: 3rem;
 }
 .whatido img {
@@ -213,7 +187,7 @@ header {
 
 
 .tech-container{
-    padding-top: 1rem;
+    margin-top: 5rem;
 
 }
 .tech-title {
@@ -253,6 +227,7 @@ header {
         padding: 2.25rem;
     }
     header {
+        display: block;
         grid-template-columns: 1;
     }
     .presentation > p{
@@ -264,5 +239,8 @@ header {
     .presentation_image {
         grid-row: 2;
         justify-self: center;  
+    }
+    .whatido-card{
+        margin-top: 2rem;
     }
 }
