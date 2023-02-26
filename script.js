@@ -89,3 +89,58 @@ function renderTechs(arr){
 }
 
 renderTechs(techList)
+
+
+
+////////////////////////////////////////////////////////////// Fetch Crypto API
+
+const content = null || document.querySelector('#crypto-container')
+
+const API='https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0'
+
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'e597161ddamsh868bce426e300e0p1303cdjsna40835b48ee8',
+		'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
+	}
+};
+
+const fetchData = async (urlApi) => {
+    const response = await fetch(urlApi, options)
+    const data = await response.json()
+    return data
+}
+
+(async ()=>{         //funcion anonima
+    try {
+        const coins = await fetchData(API) //trae los coins
+        let coinHtml = `
+        ${coins?.data?.coins.map(coin => `
+            <div class="crypto-container">
+                <h5>${coin.name} (${coin.symbol})</h5>
+                <p>Price: $${Math.round(coin.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p> 
+                <p>Change: ${coin.change}%</p>
+                <p>Market Cap: $${Math.round(coin.marketCap).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
+            </div>
+        `).slice(0,5).join('')}
+        `;
+        content.innerHTML = coinHtml;
+    } catch (error){
+        console.log(error)
+    }
+})();
+
+
+
+fetch(API, options)
+	.then(response => response.json())
+	.then(response => {
+		const coins = response?.data?.coins;
+		if (coins) {
+			coins.forEach(coin => {
+				console.log(coin.name);
+			});
+		}
+	})
+	.catch(err => console.error(err));

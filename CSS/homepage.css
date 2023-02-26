@@ -207,6 +207,35 @@ header {
     width: 3.5rem;
 }
 
+.crypto-news{
+    margin-top: 7rem;
+}
+.crypto-news >div > h3 {
+    padding-top: 1rem;
+    font-size: 2rem;
+}
+.crypto-news >p{
+    font-size: 1.35rem;
+}
+#crypto-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    column-gap: 3rem;
+}
+.crypto-container {
+    margin-top: 3rem;
+    text-align: center;
+}
+.crypto-container > h5 {
+    font-size: 1rem;
+}
+.crypto-container > p {
+    font-size: 1rem;
+}
+
+
+
+
 
 .inactive{
     display: none;
